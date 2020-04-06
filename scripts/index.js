@@ -8,6 +8,8 @@ const tryParse = (str, min, max = Number.MAX_SAFE_INTEGER) => {
 
 const validateDate = (date) => {
   date = date.trim();
+  if (date === '') return true;
+
   const values = date.split('.');
   if (values.length != 3) return false;
 
@@ -17,13 +19,13 @@ const validateDate = (date) => {
 
 const inputDate = (message) => {
   let input = prompt(message);
-  if (input != null && !input.trim()) return new Date();
 
-  while (!input || !validateDate(input)) {
+  while (input == null || !validateDate(input)) {
     alert('Дата введена некорректно');
     input = prompt(message);
   }
 
+  if (input === '') return new Date();
   const [day, month, year] = input.split('.');
   return new Date(year, +month - 1, day);
 };
@@ -32,7 +34,7 @@ const inputFormat = (message) => {
   const formats = ['годы', 'месяцы', 'недели', 'дни'];
   let format = prompt(message);
 
-  while (!format || formats.indexOf(format.toLowerCase()) == -1) {
+  while (!format || formats.indexOf(format.toLowerCase()) === -1) {
     alert('Формат введён некорректно');
     format = prompt(message);
   }
@@ -73,4 +75,4 @@ const solution = () => {
   }
 };
 
-while (true) solution();
+solution();
