@@ -1,3 +1,5 @@
+'use strict';
+
 const tryParse = (str, min, max = Number.MAX_SAFE_INTEGER) => {
   let result = parseInt(str);
   if (!result) return false;
@@ -15,9 +17,9 @@ const validateDate = (date) => {
 
 const inputDate = (message) => {
   let input = prompt(message);
-  if (!input.trim()) return new Date();
+  if (input != null && !input.trim()) return new Date();
 
-  while (!validateDate(input)) {
+  while (!input || !validateDate(input)) {
     alert('Дата введена некорректно');
     input = prompt(message);
   }
@@ -30,7 +32,7 @@ const inputFormat = (message) => {
   const formats = ['годы', 'месяцы', 'недели', 'дни'];
   let format = prompt(message);
 
-  while (formats.indexOf(format) == -1) {
+  while (!format || formats.indexOf(format.toLowerCase()) == -1) {
     alert('Формат введён некорректно');
     format = prompt(message);
   }
@@ -47,28 +49,26 @@ const solution = () => {
 
   switch (format) {
     case 'дни':
-      alert(`${totalDays} дней`);
+      alert(`Прошло ${totalDays} дней`);
       break;
 
     case 'недели':
-      alert(`${Math.floor(totalDays / 7)} недель ${totalDays % 7} дней`);
+      alert(`Прошло ${Math.floor(totalDays / 7)} недель ${totalDays % 7} дней`);
       break;
 
     case 'месяцы':
-      alert(
-        `${Math.floor(totalDays / 30)} месяцев\
+      alert(`Прошло\
+        ${Math.floor(totalDays / 30)} месяцев\
         ${Math.floor((totalDays % 30) / 7)} недель\
-        ${(totalDays % 30) % 7} дней`
-      );
+        ${(totalDays % 30) % 7} дней`);
       break;
 
     case 'годы':
-      alert(
-        `${Math.floor(totalDays / 365)} лет\
+      alert(`Прошло\
+        ${Math.floor(totalDays / 365)} лет\
         ${Math.floor((totalDays % 365) / 30)} месяцев\
         ${Math.floor(((totalDays % 365) % 30) / 7)} недель\
-        ${((totalDays % 365) % 30) % 7} дней`
-      );
+        ${((totalDays % 365) % 30) % 7} дней`);
       break;
   }
 };
