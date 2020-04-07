@@ -43,11 +43,37 @@ const inputFormat = (message) => {
 };
 
 const solution = () => {
-  const first = inputDate('Введите первую дату в формате DD.MM.YYYY:');
-  const second = inputDate('Введите вторую дату в формате DD.MM.YYYY:');
+  let first = inputDate('Введите первую дату в формате DD.MM.YYYY:');
+  let second = inputDate('Введите вторую дату в формате DD.MM.YYYY:');
+
+  if (first > second) [first, second] = [second, first];
 
   const totalDays = Math.floor(Math.abs(second - first) / (1000 * 3600 * 24));
   let format = inputFormat('Введите формат (годы, месяцы, недели, дни):');
+
+  let years = 0,
+    months = 0,
+    days = 0;
+
+  while (first <= second) {
+    years++;
+    first.setFullYear(first.getFullYear() + 1);
+  }
+  years--;
+  first.setFullYear(first.getFullYear() - 1);
+
+  while (first <= second) {
+    months++;
+    first.setMonth(first.getMonth() + 1);
+  }
+  months--;
+  first.setMonth(first.getMonth() - 1);
+
+  while (first <= second) {
+    days++;
+    first.setDate(first.getDate() + 1);
+  }
+  days--;
 
   switch (format) {
     case 'дни':
@@ -60,17 +86,17 @@ const solution = () => {
 
     case 'месяцы':
       alert(`Прошло\
-        ${Math.floor(totalDays / 30)} месяцев\
-        ${Math.floor((totalDays % 30) / 7)} недель\
-        ${(totalDays % 30) % 7} дней`);
+        ${months + years * 12} месяцев\
+        ${Math.floor(days / 7)} недель\
+        ${days % 7} дней`);
       break;
 
     case 'годы':
       alert(`Прошло\
-        ${Math.floor(totalDays / 365)} лет\
-        ${Math.floor((totalDays % 365) / 30)} месяцев\
-        ${Math.floor(((totalDays % 365) % 30) / 7)} недель\
-        ${((totalDays % 365) % 30) % 7} дней`);
+        ${years} лет\
+        ${months} месяцев\
+        ${Math.floor(days / 7)} недель\
+        ${days % 7} дней`);
       break;
   }
 };
