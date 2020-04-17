@@ -1,0 +1,6 @@
+﻿  console_utils.cpp
+  LAB1.cpp
+C:\Users\Hardened\Documents\GitHub\LABS\C++\LAB1\LAB1\LAB1.cpp(46,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  vector_utils.cpp
+  Создание кода...
+  LAB1.vcxproj -> C:\Users\Hardened\Documents\GitHub\LABS\C++\LAB1\Debug\LAB1.exe
