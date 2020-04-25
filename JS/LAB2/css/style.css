@@ -5,6 +5,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+form {
+  margin-left: 2em;
+  margin-top: 10em;
+  padding: 2em;
+  border: 2px solid #d3d3d3;
+  border-radius: 0.5em;
+  background-color: #ffffff;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.95;
+}
+
+input {
+  font-size: inherit;
+  margin: 1em 0em;
+}
+
+label {
+  font-weight: bold;
+}
+
 table {
   border-collapse: collapse;
   background-color: #ffffff;
