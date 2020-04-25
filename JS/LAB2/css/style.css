@@ -1,0 +1,78 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+th,
+td {
+  width: 8em;
+  padding: 0.5em;
+  border-bottom: 3px solid #d3d3d3;
+}
+
+th:last-child,
+td:last-child {
+  width: 0em;
+}
+
+th:last-child:hover,
+td:last-child:hover {
+  cursor: initial;
+}
+
+th {
+  text-align: left;
+}
+
+th:hover,
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.3em;
+}
+
+.tableWrapper {
+  margin-top: 10em;
+  height: min-content;
+  border: 2px solid #d3d3d3;
+  border-radius: 0.5em;
+  padding: 2em;
+  background-color: #ffffff;
+  opacity: 0.95;
+}
+
+.backgroundWrapper {
+  z-index: -9999;
+  background: url('https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80');
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  animation: animation 100s linear infinite;
+}
+
+@keyframes animation {
+  100% {
+    background-position: 0px -3000px;
+  }
+}
