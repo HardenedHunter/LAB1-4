@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "command": "Yandex",
+  "windows": {
+    "command": "C:\\Users\\Hardened\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe"
+  },
+  "args": ["${file}"]
+}
